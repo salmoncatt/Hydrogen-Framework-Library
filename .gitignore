@@ -3,9 +3,9 @@
 bin/
 
 #files
-.ipch
-.sln
-.vcxproj
-.vcxproj.filters
-.vcxproj.user
+*.ipch
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
 main.cpp
