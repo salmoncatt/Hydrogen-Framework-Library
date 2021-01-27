@@ -1,0 +1,11 @@
+#folders
+.vs/
+bin/
+
+#files
+.ipch
+.sln
+.vcxproj
+.vcxproj.filters
+.vcxproj.user
+main.cpp
