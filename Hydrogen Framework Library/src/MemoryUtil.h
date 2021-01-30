@@ -2,6 +2,18 @@
 #ifndef HGE_MEMORY_UTIL_HEADER_INCLUDE
 #define HGE_MEMORY_UTIL_HEADER_INCLUDE
 
+
+//NULL so i dont have to use other libraries
+
+#ifndef NULL
+#ifdef __cplusplus
+#define NULL 0
+#else
+#define NULL ((void *)0)
+#endif
+#endif
+
+
 namespace HGE {
 
 
@@ -45,6 +57,10 @@ namespace HGE {
 
 	char* strcpy(char* destination, const char* source) {
 		return (char*)memcpy(destination, source, strlen(source) + 1);
+	}
+
+	char* strcpy(char* destination, const char* source, const unsigned long& offset) {
+		return (char*)memcpy(destination, source + offset, strlen(source) + 1 - offset);
 	}
 
 

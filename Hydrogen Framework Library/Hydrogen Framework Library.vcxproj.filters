@@ -15,6 +15,8 @@
     <ClInclude Include="src\HFL.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\FileIO.h" />
+    <ClInclude Include="src\vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
