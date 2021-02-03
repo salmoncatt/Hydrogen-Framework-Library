@@ -18,7 +18,6 @@
     <ClInclude Include="src\FileIO.h" />
     <ClInclude Include="src\vector.h" />
     <ClInclude Include="src\HFLdef.h" />
-    <ClInclude Include="src\vcruntime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
