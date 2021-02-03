@@ -14,7 +14,7 @@ namespace HGE {
 		size_t capacity;
 		size_t currentSize;
 
-		__cleanup__() {
+		void __cleanup__() {
 			if (data != nullptr)
 				delete[] data;
 			capacity = 0;
