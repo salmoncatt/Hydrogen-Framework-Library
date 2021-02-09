@@ -152,6 +152,7 @@
     <ClInclude Include="src\HFLdef.h" />
     <ClInclude Include="src\MemoryUtil.h" />
     <ClInclude Include="src\string.h" />
+    <ClInclude Include="src\Util.h" />
     <ClInclude Include="src\vector.h" />
   </ItemGroup>
   <ItemGroup>
