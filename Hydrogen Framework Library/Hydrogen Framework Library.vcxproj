@@ -150,6 +150,7 @@
     <ClInclude Include="src\FileIO.h" />
     <ClInclude Include="src\HFL.h" />
     <ClInclude Include="src\HFLdef.h" />
+    <ClInclude Include="src\Math.h" />
     <ClInclude Include="src\MemoryUtil.h" />
     <ClInclude Include="src\string.h" />
     <ClInclude Include="src\Util.h" />
