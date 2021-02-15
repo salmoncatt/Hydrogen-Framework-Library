@@ -1,4 +1,3 @@
-
 #ifndef HFL_MEMORY_UTIL_HEADER_INCLUDE
 #define HFL_MEMORY_UTIL_HEADER_INCLUDE
 
@@ -14,7 +13,7 @@ namespace HGE {
 	* @param Source of data
 	* @param Size of the data in bytes
 	*/
-	inline void* memcpy(void* destination, const void* source, size_t size) {
+	void* memcpy(void* destination, const void* source, size_t size) {
 		char* dest = (char*)destination;
 		const char* src = (const char*)source;
 
