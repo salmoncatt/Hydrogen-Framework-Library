@@ -21,7 +21,6 @@ namespace HGE {
 
 #ifdef __AVX512__
 		while (size >= 64) {
-			//wtf even is this, assembly in c++? am i a assembly developer too now?
 			auto val = _mm512_loadu_si512((__m512i*)(src));
 			_mm512_storeu_si512((__m512i*)dest, val);
 			dest += 64;
@@ -31,7 +30,6 @@ namespace HGE {
 #endif
 
 		while (size >= 32) {
-			//wtf even is this, assembly in c++? am i a assembly developer too now?
 			auto val = _mm256_loadu_si256((__m256i*)(src));
 			_mm256_storeu_si256((__m256i*)dest, val);
 			dest += 32;
@@ -40,7 +38,6 @@ namespace HGE {
 		}
 
 		while (size >= 16) {
-			//wtf even is this, assembly in c++? am i a assembly developer too now?
 			auto val = _mm_loadu_si128((__m128i*)(src));
 			_mm_storeu_si128((__m128i*)dest, val);
 			dest += 16;
@@ -70,14 +67,30 @@ namespace HGE {
 	* @author Salmoncatt
 	*/
 	inline size_t strlen(const char* data) {
+		const __m128i terminationCharacters = _mm_setzero_si128();
+		const __m128i* pointer = (const __m128i*)data;
+
 		size_t length = 0;
 
-		while (data[length])
-			length += 1;
+		//const int compareMode = _SIDD_UBYTE_OPS | _SIDD_LEAST_SIGNIFICANT | _SIDD_CMP_EQUAL_EACH;
 
-		return length;
+		for (;; length += 16, ++pointer) {
+			const __m128i comparingData = _mm_loadu_si128(pointer);
+			const __m128i comparison = _mm_cmpeq_epi8(comparingData, terminationCharacters);
+
+			if (!_mm_testc_si128(terminationCharacters, comparison)) {
+				const auto mask = _mm_movemask_epi8(comparison);
+
+				//return length + _mm_lzcnt_epi32(mask);
+			}
+
+			//this ones returns the index at which there is one
+			//size_t index = _mm_cmpistri(terminationCharacters, comparingData, compareMode);
+
+			//if (index < 16)
+			//	return length + index;
+		}
 	}
-
 
 	inline char* strcpy(char* destination, const char* source) {
 		return (char*)memcpy(destination, source, strlen(source) + 1);
